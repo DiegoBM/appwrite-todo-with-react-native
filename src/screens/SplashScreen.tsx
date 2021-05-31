@@ -52,7 +52,7 @@ const SplashScreen: React.FC = () => {
       <AppText style={[styles.header1]}>toTooooDoooo</AppText>
       <AppText style={[styles.section, styles.header2]}>
         A Simple To-do App built with <AppwriteIcon /> Appwrite and{' '}
-        <ReactIcon /> React
+        <ReactIcon /> React Native
       </AppText>
       {loading ? (
         <ActivityIndicator size="large" color="#206fce" />

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {StyleSheet, View, TextInput, Alert} from 'react-native';
+import {StyleSheet, View, TextInput, Alert, Platform} from 'react-native';
 
 import sdk, {
   collectionId,
@@ -44,6 +44,7 @@ const AddTodo: React.FC<AddTodoProps> = ({onRefresh}) => {
   return (
     <View style={[styles.card, styles.separation]}>
       <TextInput
+        style={styles.input}
         value={value}
         placeholder="🤔  What to do today?"
         onChangeText={setValue}
@@ -71,6 +72,15 @@ const styles = StyleSheet.create({
   },
   separation: {
     marginBottom: 30,
+  },
+  input: {
+    ...Platform.select({
+      android: {},
+      ios: {
+        paddingHorizontal: Platform.select({android: 0, ios: 5}),
+        paddingVertical: Platform.select({android: 0, ios: 15}),
+      },
+    }),
   },
 });
 

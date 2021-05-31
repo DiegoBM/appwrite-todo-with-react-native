@@ -1,5 +1,12 @@
 import React, {useState, useContext, useCallback} from 'react';
-import {StyleSheet, View, Button, TextInput, Alert} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Button,
+  TextInput,
+  Alert,
+  Platform,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AppwriteOauth from 'react-native-appwrite-oauth';
 
@@ -141,6 +148,13 @@ const styles = StyleSheet.create({
     marginTop: 15,
     borderBottomWidth: 1,
     width: '80%',
+    ...Platform.select({
+      android: {},
+      ios: {
+        paddingHorizontal: 5,
+        paddingVertical: 10,
+      },
+    }),
   },
   lastItem: {
     marginBottom: 25,

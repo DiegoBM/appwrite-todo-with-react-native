@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, TouchableOpacity, Alert} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Alert,
+  Platform,
+} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import AppText from '../components/AppText';
@@ -57,7 +63,12 @@ const TodoItem: React.FC<TodoItemProps> = ({todo, onRefresh}) => {
   return (
     <View style={styles.todoItem}>
       <View style={styles.dataContainer}>
-        <CheckBox value={checked} onValueChange={handleValueChange} />
+        <CheckBox
+          style={styles.checkbox}
+          boxType="square"
+          value={checked}
+          onValueChange={handleValueChange}
+        />
         <View style={styles.contentContainer}>
           <AppText style={todo.isComplete ? [styles.completed] : []}>
             {todo.content}
@@ -77,11 +88,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginBottom: Platform.select({android: 0, ios: 5}),
   },
   dataContainer: {
     flex: 0.9,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  checkbox: {
+    ...Platform.select({
+      android: {},
+      ios: {
+        marginRight: 10,
+        width: 18,
+        height: 18,
+      },
+    }),
   },
   contentContainer: {
     flexDirection: 'row',

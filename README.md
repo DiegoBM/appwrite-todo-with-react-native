@@ -77,6 +77,12 @@ Now run the following commands and you should be good to go 💪🏼
 $ npm install
 ```
 
+For iOS devices you'll need to link the relevant CocoaPods. From the `/ios` directory run:
+
+```sh
+pod install
+```
+
 To run on Android:
 
 ```sh

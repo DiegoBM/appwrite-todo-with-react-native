@@ -80,13 +80,13 @@ $ npm install
 To run on Android:
 
 ```sh
-$ npmx react-native run-android
+$ npx react-native run-android
 ```
 
 To run on iOS:
 
 ```sh
-$ npmx react-native run-ios
+$ npx react-native run-ios
 ```
 
 ## 😧 Remarks
